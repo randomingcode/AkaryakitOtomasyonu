@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Calisma
 {
-    internal class Dizel : Yakit
+    public class Dizel : Yakit
     {
         public Dizel()
         {
@@ -15,5 +15,17 @@ namespace Calisma
         }
         public double Miktar { get; set; }
         public double Fiyat { get; set; }
+
+        public override string ToString()
+        {
+            return "Dizel";
+        }
+
+        public void YakitAl(Musteri musteri)
+        {
+            Miktar =Miktar - musteri.istenilenMiktar;
+            Console.WriteLine(" kalan Dizel miktarı: " + Miktar);
+            Console.WriteLine("Ödenecek Tutar: " + (musteri.istenilenMiktar * Fiyat));
+        }
     }
 }

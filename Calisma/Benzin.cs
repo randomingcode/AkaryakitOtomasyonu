@@ -21,5 +21,12 @@ namespace Calisma
         {
             return "benzin";
         }
+
+        public void YakitAl(Musteri musteri)
+        {
+            Miktar = Miktar - musteri.istenilenMiktar;
+            Console.WriteLine(" kalan Benzin miktarı: " + Miktar);
+            Console.WriteLine("Ödenecek Tutar: " + (musteri.istenilenMiktar * Fiyat));
+        }
     }
 }

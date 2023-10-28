@@ -10,7 +10,6 @@ namespace Calisma
     {
         public double Miktar { get; set; }
         public double Fiyat { get; set; }
-
-       
+        public void YakitAl(Musteri musteri);
     }
 }

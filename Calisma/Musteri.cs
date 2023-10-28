@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Calisma
 {
     public delegate void Yakıt();
-    internal class Musteri
+    public class Musteri
     {
         public string PlakaNo { get; set; }
 
@@ -21,12 +21,25 @@ namespace Calisma
 
         public void YakıtAl()
         {
-
-            Console.WriteLine( " Yakıt dolduruluyor.");
+            ProgressBar();
             YakitAlindi();
 
         }
 
-        
+        void ProgressBar()
+        {
+            Console.Write("Yakıt dolduruluyor.... ");
+            using (var progress = new ProgressBar())
+            {
+                for (int i = 0; i <= 100; i++)
+                {
+                    progress.Report((double)i / 100);
+                    Thread.Sleep(20);
+                }
+            }
+            Console.WriteLine("Tamamlandı.");
+        }
+
+
     }
 }
